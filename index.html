@@ -1633,7 +1633,7 @@
         const clave = document.getElementById('input-clave').value;
         if (clave === ADMIN_PASSWORD) {
             cerrarModal();
-            document.getElementById('btn-edit').style.display = 'flex';
+            activarEdicion();
         } else {
             document.getElementById('error-clave').style.display = 'block';
             document.getElementById('input-clave').value = '';

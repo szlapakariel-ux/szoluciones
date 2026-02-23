@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="es" data-redeviation-bs-uid="587w943yc2l"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZoluciones - Sistemas que trabajan para vos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #ffffff;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a202c;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: -0.5px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #38a169;
+        }
+
+        .nav-cta {
+            background: #48bb78;
+            color: white !important;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: #38a169 !important;
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: #4a5568;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 90px 0 80px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0fff4;
+            color: #276749;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #c6f6d5;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            background: #48bb78;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #1a202c;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            color: #48bb78;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            color: #718096;
+            line-height: 1.9;
+            margin-bottom: 36px;
+            max-width: 480px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%);
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(72, 187, 120, 0.35);
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(72, 187, 120, 0.45);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2d3748;
+            padding: 14px 26px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #48bb78;
+            color: #38a169;
+        }
+
+        .hero-trust {
+            margin-top: 36px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-trust-avatars {
+            display: flex;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -8px;
+            background: linear-gradient(135deg, #68d391, #48bb78);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        .hero-trust-text {
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .hero-trust-text strong {
+            color: #1a202c;
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-visual-main {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            display: block;
+        }
+
+        /* Floating cards over hero illustration */
+        .hero-float-card {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-float-card.card-left {
+            left: -24px;
+            bottom: 80px;
+            animation-delay: 0.5s;
+        }
+
+        .hero-float-card.card-top {
+            right: -10px;
+            top: 60px;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .float-icon.green { background: #f0fff4; }
+        .float-icon.blue  { background: #ebf8ff; }
+
+        .float-label { font-size: 11px; color: #a0aec0; }
+        .float-value { font-size: 14px; font-weight: 700; color: #1a202c; }
+
+        /* ─── LOGOS STRIP ─── */
+        .logos-strip {
+            background: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 28px 0;
+        }
+
+        .logos-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .strip-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #a0aec0;
+        }
+
+        .industry-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        /* ─── SOLUTIONS ─── */
+        .solutions {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #48bb78;
+            margin-bottom: 12px;
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: #718096;
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .solution-card {
+            background: #fff;
+            padding: 36px 32px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #48bb78, #38b2f0);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+            border-color: transparent;
+        }
+
+        .solution-card:hover::before {
+            opacity: 1;
+        }
+
+        .sol-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .sol-icon.green { background: #f0fff4; }
+        .sol-icon.blue  { background: #ebf8ff; }
+        .sol-icon.purple{ background: #faf5ff; }
+
+        .solution-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .solution-card p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #48bb78;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+
+        .card-link:hover {
+            gap: 8px;
+        }
+
+        /* Custom solution banner */
+        .custom-banner {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            border-radius: 20px;
+            padding: 56px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-banner::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(72,187,120,0.15) 0%, transparent 70%);
+            top: -80px;
+            right: -60px;
+            border-radius: 50%;
+        }
+
+        .custom-banner-content h3 {
+            font-size: 30px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .custom-banner-content p {
+            font-size: 15px;
+            color: #a0aec0;
+            max-width: 460px;
+            line-height: 1.7;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1a202c;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ─── HOW IT WORKS ─── */
+        .how-it-works {
+            padding: 100px 0;
+            background: #f7fafc;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: calc(16.66% + 20px);
+            right: calc(16.66% + 20px);
+            height: 2px;
+            background: linear-gradient(90deg, #48bb78, #38b2f0);
+            border-radius: 2px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #48bb78;
+            color: #48bb78;
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        /* ─── WHY US ─── */
+        .why-us {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .why-content .section-eyebrow {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .why-content h2 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .why-content p {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 32px;
+            line-height: 1.9;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: #2d3748;
+        }
+
+        .check-icon {
+            width: 22px;
+            height: 22px;
+            background: #f0fff4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .check-icon svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Dashboard mockup */
+        .why-visual {
+            position: relative;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dash-header {
+            background: #f7fafc;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .dash-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dash-body {
+            padding: 24px;
+        }
+
+        .dash-kpis {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .kpi-box {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            color: #a0aec0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .kpi-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a202c;
+        }
+
+        .kpi-delta {
+            font-size: 11px;
+            color: #48bb78;
+            font-weight: 600;
+        }
+
+        .dash-chart {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .chart-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #a0aec0;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 70px;
+        }
+
+        .bar {
+            flex: 1;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(180deg, #48bb78, #38a169);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .bar:hover { opacity: 1; }
+        .bar.blue { background: linear-gradient(180deg, #63b3ed, #4299e1); }
+
+        .dash-table-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .dash-table-row:last-child { border-bottom: none; }
+
+        .row-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .row-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #4a5568;
+            flex: 1;
+        }
+
+        .row-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .badge-green { background: #f0fff4; color: #276749; }
+        .badge-blue  { background: #ebf8ff; color: #2c5282; }
+        .badge-yellow{ background: #fefce8; color: #744210; }
+
+        /* Floating notif */
+        .dash-notif {
+            position: absolute;
+            right: -32px;
+            bottom: 60px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        .notif-icon {
+            width: 38px;
+            height: 38px;
+            background: #f0fff4;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .notif-title { font-size: 13px; font-weight: 700; color: #1a202c; }
+        .notif-sub   { font-size: 11px; color: #a0aec0; }
+
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #ebf8ff 100%);
+            border-radius: 24px;
+            padding: 72px 60px;
+            border: 1px solid #c6f6d5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(72,187,120,0.12) 0%, transparent 70%);
+            top: -120px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .cta-box h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 40px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 64px 0 28px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #2d3748;
+            margin-bottom: 28px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #a0aec0;
+            line-height: 1.8;
+            max-width: 260px;
+            margin-bottom: 20px;
+        }
+
+        .footer-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #48bb78;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .footer-wa:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .footer-col h5 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #718096;
+            margin-bottom: 18px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: #a0aec0;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #48bb78;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-bottom: 10px;
+        }
+
+        .footer-phone-big {
+            font-size: 18px;
+            font-weight: 700;
+            color: #48bb78;
+            margin-bottom: 6px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #4a5568;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 64px 0 60px;
+            }
+
+            .hero-visual {
+                order: -1;
+                max-width: 480px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .hero-float-card.card-left  { left: 0; }
+            .hero-float-card.card-top   { right: 0; }
+
+            .solutions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps-grid::before { display: none; }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 68px;
+                left: 0; right: 0;
+                background: white;
+                border-bottom: 1px solid #e2e8f0;
+                padding: 20px 28px;
+                gap: 16px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .hamburger { display: flex; }
+
+            .hero-content h1 { font-size: 36px; }
+
+            .section-header h2 { font-size: 30px; }
+
+            .solutions-grid { grid-template-columns: 1fr; }
+
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+            .cta-box { padding: 48px 28px; }
+            .cta-box h2 { font-size: 30px; }
+
+            .custom-banner { padding: 40px 32px; }
+            .custom-banner-content h3 { font-size: 24px; }
+
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+
+            .why-visual { display: none; }
+
+            .dash-notif { display: none; }
+        }
+    </style>
+<style class="redeviation-bs-style" data-name="content">body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-overlay.redeviation-bs-visible,body>#redeviation-bs-sidebar.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity .3s,transform .3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos=right]{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos=right]>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div{background:rgba(0,0,0,0)}body>div#redeviation-bs-indicator[data-pos=left].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:auto !important;speak:none;border:none;display:block !important;visibility:visible !important;transform:translate3d(-350px, 0, 0);transition:width 0s .3s,height 0s .3s,opacity .3s,transform .3s}body>#redeviation-bs-sidebar[data-pos=right]{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity .3s,transform .3s}body>#redeviation-bs-sidebar.sidepanel{width:100% !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;color-scheme:auto !important;transition:opacity .3s}/*# sourceMappingURL=content.css.map */
+</style></head>
+<body>
+
+    <!-- ─── NAVBAR ─── -->
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">SZ</div>
+                    <span>Szoluciones</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20quiero%20digitalizar%20mi%20negocio" target="_blank" class="nav-cta">Hablar con nosotros</a></li>
+                </ul>
+                <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <span class="hero-badge-dot"></span>
+                    Digitalización para PyMEs argentinas
+                </div>
+                <h1 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Sistemas que<br><span>trabajan</span><br>para vos</h1>
+                <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Simplificamos la gestión de tu peluquería, cafetería o tienda para que te liberes de tareas administrativas y vuelvas a disfrutar de lo que amás hacer.</p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20quiero%20digitalizar%20mi%20negocio" class="btn-primary" target="_blank">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                        Empezar ahora
+                    </a>
+                    <a href="#soluciones" class="btn-secondary">
+                        Ver soluciones
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Hero SVG Illustration: phone + app mockup -->
+                <img src="1.jpeg" alt="Cliente y vendedor en un negocio usando SZoluciones" class="hero-visual-main" style="border-radius:20px; object-fit:cover; height:460px; box-shadow: 0 20px 50px rgba(0,0,0,0.12);">
+                <svg style="display:none" viewBox="0 0 480 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- ═══ FONDO CÁLIDO CIRCULAR ═══ -->
+                    <circle cx="240" cy="270" r="185" fill="#fef9f0"></circle>
+                    <circle cx="240" cy="270" r="185" fill="url(#warmGrad)" opacity="0.5"></circle>
+                    <defs>
+                        <radialGradient id="warmGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fef3c7"></stop>
+                            <stop offset="100%" stop-color="#d1fae5"></stop>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- ═══ PISO ═══ -->
+                    <ellipse cx="240" cy="415" rx="170" ry="14" fill="#e2e8f0" opacity="0.5"></ellipse>
+
+                    <!-- ═══ MOSTRADOR ═══ -->
+                    <!-- Cuerpo del mostrador -->
+                    <rect x="100" y="320" width="280" height="70" rx="10" fill="#92400e" opacity="0.15"></rect>
+                    <rect x="95" y="310" width="290" height="20" rx="6" fill="#a16207" opacity="0.25"></rect>
+                    <rect x="100" y="310" width="280" height="18" rx="6" fill="#fde68a"></rect>
+                    <!-- Frente del mostrador -->
+                    <rect x="105" y="328" width="270" height="58" rx="8" fill="#fbbf24" opacity="0.3"></rect>
+                    <rect x="105" y="328" width="270" height="58" rx="8" fill="url(#counterGrad)"></rect>
+                    <defs>
+                        <linearGradient id="counterGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#fde68a"></stop>
+                            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.6"></stop>
+                        </linearGradient>
+                    </defs>
+                    <!-- Detalle mostrador: línea superior -->
+                    <rect x="95" y="308" width="290" height="6" rx="3" fill="#d97706" opacity="0.5"></rect>
+
+                    <!-- Objetos sobre el mostrador -->
+                    <!-- Taza de café -->
+                    <rect x="200" y="285" width="26" height="22" rx="4" fill="white" opacity="0.9"></rect>
+                    <rect x="202" y="287" width="22" height="10" rx="2" fill="#fde68a" opacity="0.6"></rect>
+                    <path d="M226 293 Q232 293 232 299 Q232 305 226 305" stroke="#d97706" stroke-width="2" fill="none" stroke-linecap="round"></path>
+                    <ellipse cx="213" cy="307" rx="14" ry="3" fill="#e2e8f0" opacity="0.5"></ellipse>
+                    <!-- Tablet/pantalla sobre mostrador -->
+                    <rect x="240" y="278" width="44" height="30" rx="5" fill="#1a202c" opacity="0.85"></rect>
+                    <rect x="243" y="281" width="38" height="24" rx="3" fill="#ebf8ff"></rect>
+                    <!-- mini gráfico en la tablet -->
+                    <rect x="246" y="295" width="5" height="7" rx="1" fill="#48bb78" opacity="0.8"></rect>
+                    <rect x="253" y="291" width="5" height="11" rx="1" fill="#48bb78"></rect>
+                    <rect x="260" y="293" width="5" height="9" rx="1" fill="#48bb78" opacity="0.7"></rect>
+                    <rect x="267" y="289" width="5" height="13" rx="1" fill="#48bb78"></rect>
+                    <line x1="255" y1="268" x2="261" y2="278" stroke="#4a5568" stroke-width="1.5"></line>
+                    <rect x="253" y="265" width="10" height="4" rx="2" fill="#4a5568"></rect>
+
+                    <!-- ═══ VENDEDOR (derecha, detrás del mostrador) ═══ -->
+                    <!-- Cuerpo / torso -->
+                    <rect x="290" y="220" width="54" height="95" rx="12" fill="#48bb78"></rect>
+                    <!-- Cuello -->
+                    <rect x="308" y="205" width="18" height="20" rx="6" fill="#fcd9b6"></rect>
+                    <!-- Cabeza -->
+                    <ellipse cx="317" cy="193" rx="22" ry="22" fill="#fcd9b6"></ellipse>
+                    <!-- Pelo vendedor (oscuro) -->
+                    <ellipse cx="317" cy="176" rx="22" ry="10" fill="#2d3748"></ellipse>
+                    <rect x="295" y="176" width="44" height="14" rx="4" fill="#2d3748"></rect>
+                    <!-- Cara vendedor: ojos -->
+                    <circle cx="310" cy="193" r="2.5" fill="#2d3748"></circle>
+                    <circle cx="324" cy="193" r="2.5" fill="#2d3748"></circle>
+                    <!-- Sonrisa vendedor -->
+                    <path d="M309 200 Q317 206 325 200" stroke="#c05621" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+                    <!-- Brazos vendedor -->
+                    <rect x="270" y="228" width="22" height="12" rx="6" fill="#48bb78" transform="rotate(-15 270 228)"></rect>
+                    <rect x="340" y="228" width="22" height="12" rx="6" fill="#48bb78" transform="rotate(15 340 228)"></rect>
+                    <!-- Mano extendida (apuntando a la tablet) -->
+                    <ellipse cx="268" cy="290" rx="8" ry="6" fill="#fcd9b6" transform="rotate(-10 268 290)"></ellipse>
+                    <!-- Collar / uniforme detalle -->
+                    <path d="M305 225 L317 240 L329 225" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>
+
+                    <!-- ═══ CLIENTE (izquierda, frente al mostrador) ═══ -->
+                    <!-- Cuerpo cliente -->
+                    <rect x="128" y="235" width="50" height="80" rx="12" fill="#63b3ed"></rect>
+                    <!-- Cuello -->
+                    <rect x="144" y="220" width="18" height="20" rx="6" fill="#fed7aa"></rect>
+                    <!-- Cabeza cliente -->
+                    <ellipse cx="153" cy="208" rx="21" ry="21" fill="#fed7aa"></ellipse>
+                    <!-- Pelo cliente (castaño, mujer) -->
+                    <ellipse cx="153" cy="193" rx="21" ry="9" fill="#92400e"></ellipse>
+                    <rect x="132" y="193" width="42" height="18" rx="4" fill="#92400e"></rect>
+                    <rect x="130" y="200" width="8" height="22" rx="4" fill="#92400e"></rect>
+                    <rect x="174" y="200" width="8" height="22" rx="4" fill="#92400e"></rect>
+                    <!-- Cara cliente: ojos -->
+                    <circle cx="146" cy="208" r="2.5" fill="#2d3748"></circle>
+                    <circle cx="160" cy="208" r="2.5" fill="#2d3748"></circle>
+                    <!-- Sonrisa cliente -->
+                    <path d="M145 215 Q153 221 161 215" stroke="#c05621" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+                    <!-- Brazo cliente con celular -->
+                    <rect x="172" y="248" width="20" height="10" rx="5" fill="#63b3ed" transform="rotate(-20 172 248)"></rect>
+                    <!-- Celular en mano del cliente -->
+                    <rect x="183" y="265" width="16" height="26" rx="4" fill="#1a202c"></rect>
+                    <rect x="185" y="267" width="12" height="22" rx="2" fill="#ebf8ff"></rect>
+                    <rect x="187" y="279" width="8" height="3" rx="1" fill="#48bb78"></rect>
+                    <rect x="187" y="274" width="5" height="2" rx="1" fill="#e2e8f0"></rect>
+                    <!-- Brazo izquierdo -->
+                    <rect x="110" y="248" width="22" height="10" rx="5" fill="#63b3ed" transform="rotate(20 110 248)"></rect>
+
+                    <!-- ═══ DETALLES AMBIENTE ═══ -->
+                    <!-- Planta decorativa fondo izquierda -->
+                    <ellipse cx="72" cy="390" rx="18" ry="6" fill="#c6f6d5" opacity="0.7"></ellipse>
+                    <rect x="70" y="340" width="4" height="50" rx="2" fill="#68d391" opacity="0.6"></rect>
+                    <ellipse cx="72" cy="338" rx="14" ry="18" fill="#68d391" opacity="0.4"></ellipse>
+                    <ellipse cx="60" cy="352" rx="10" ry="14" fill="#48bb78" opacity="0.35"></ellipse>
+                    <ellipse cx="84" cy="348" rx="10" ry="14" fill="#48bb78" opacity="0.35"></ellipse>
+                    <!-- Estante fondo -->
+                    <rect x="320" y="200" width="80" height="6" rx="3" fill="#e2e8f0" opacity="0.6"></rect>
+                    <rect x="320" y="230" width="80" height="6" rx="3" fill="#e2e8f0" opacity="0.6"></rect>
+                    <!-- Objetos en estante -->
+                    <rect x="328" y="183" width="10" height="17" rx="3" fill="#a78bfa" opacity="0.6"></rect>
+                    <rect x="342" y="179" width="10" height="21" rx="3" fill="#f9a8d4" opacity="0.6"></rect>
+                    <rect x="356" y="186" width="10" height="14" rx="3" fill="#6ee7b7" opacity="0.6"></rect>
+                    <rect x="328" y="213" width="14" height="17" rx="3" fill="#fbbf24" opacity="0.5"></rect>
+                    <rect x="346" y="210" width="12" height="20" rx="3" fill="#93c5fd" opacity="0.6"></rect>
+                    <rect x="362" y="215" width="10" height="15" rx="3" fill="#f87171" opacity="0.5"></rect>
+                    <!-- Bocadillo / chat entre los dos -->
+                    <rect x="168" y="168" width="80" height="28" rx="10" fill="white" opacity="0.95"></rect>
+                    <path d="M210 196 L204 208 L216 196" fill="white" opacity="0.95"></path>
+                    <text x="208" y="187" font-size="8.5" fill="#48bb78" font-family="sans-serif" font-weight="700" text-anchor="middle">¡Turno listo!</text>
+                    <text x="208" y="198" font-size="7.5" fill="#718096" font-family="sans-serif" text-anchor="middle">Confirmado ✓</text>
+
+                    <!-- ═══ CELULAR (superpuesto al centro) ═══ -->
+                    <rect x="185" y="38" width="110" height="210" rx="18" fill="#1a202c" opacity="0.97"></rect>
+                    <rect x="191" y="52" width="98" height="182" rx="11" fill="white"></rect>
+                    <rect x="220" y="44" width="50" height="7" rx="3.5" fill="#2d3748"></rect>
+                    <!-- App header -->
+                    <rect x="191" y="52" width="98" height="32" fill="#f7fafc"></rect>
+                    <circle cx="205" cy="68" r="8" fill="#48bb78" opacity="0.2"></circle>
+                    <text x="202" y="72" font-size="7" fill="#38a169" font-family="sans-serif" font-weight="800">SZ</text>
+                    <text x="218" y="65" font-size="6" fill="#1a202c" font-family="sans-serif" font-weight="700">SZoluciones</text>
+                    <text x="218" y="74" font-size="5.5" fill="#a0aec0" font-family="sans-serif">Panel · Hoy</text>
+                    <!-- KPIs mini -->
+                    <rect x="195" y="88" width="28" height="26" rx="5" fill="#f0fff4"></rect>
+                    <text x="209" y="98" font-size="5" fill="#48bb78" font-family="sans-serif" font-weight="600" text-anchor="middle">TURNOS</text>
+                    <text x="209" y="109" font-size="9" fill="#1a202c" font-family="sans-serif" font-weight="800" text-anchor="middle">24</text>
+                    <rect x="226" y="88" width="28" height="26" rx="5" fill="#ebf8ff"></rect>
+                    <text x="240" y="98" font-size="5" fill="#4299e1" font-family="sans-serif" font-weight="600" text-anchor="middle">VENTAS</text>
+                    <text x="240" y="109" font-size="8" fill="#1a202c" font-family="sans-serif" font-weight="800" text-anchor="middle">$48k</text>
+                    <rect x="257" y="88" width="28" height="26" rx="5" fill="#faf5ff"></rect>
+                    <text x="271" y="98" font-size="4.5" fill="#805ad5" font-family="sans-serif" font-weight="600" text-anchor="middle">CLIENTES</text>
+                    <text x="271" y="109" font-size="9" fill="#1a202c" font-family="sans-serif" font-weight="800" text-anchor="middle">87</text>
+                    <!-- Chart mini -->
+                    <rect x="195" y="118" width="90" height="42" rx="5" fill="#f7fafc"></rect>
+                    <text x="200" y="127" font-size="5" fill="#a0aec0" font-family="sans-serif" font-weight="600">ACTIVIDAD SEMANAL</text>
+                    <rect x="200" y="145" width="8" height="12" rx="2" fill="#48bb78" opacity="0.5"></rect>
+                    <rect x="211" y="140" width="8" height="17" rx="2" fill="#48bb78" opacity="0.7"></rect>
+                    <rect x="222" y="136" width="8" height="21" rx="2" fill="#48bb78"></rect>
+                    <rect x="233" y="141" width="8" height="16" rx="2" fill="#48bb78" opacity="0.65"></rect>
+                    <rect x="244" y="138" width="8" height="19" rx="2" fill="#48bb78" opacity="0.8"></rect>
+                    <rect x="255" y="135" width="8" height="22" rx="2" fill="#48bb78"></rect>
+                    <rect x="266" y="133" width="8" height="24" rx="2" fill="#48bb78"></rect>
+                    <!-- Lista agenda -->
+                    <circle cx="200" cy="170" r="3" fill="#48bb78"></circle>
+                    <rect x="207" y="168" width="42" height="4" rx="2" fill="#e2e8f0"></rect>
+                    <rect x="253" y="168" width="20" height="4" rx="2" fill="#c6f6d5"></rect>
+                    <circle cx="200" cy="180" r="3" fill="#63b3ed"></circle>
+                    <rect x="207" y="178" width="32" height="4" rx="2" fill="#e2e8f0"></rect>
+                    <rect x="253" y="178" width="20" height="4" rx="2" fill="#bee3f8"></rect>
+                    <circle cx="200" cy="190" r="3" fill="#f6ad55"></circle>
+                    <rect x="207" y="188" width="38" height="4" rx="2" fill="#e2e8f0"></rect>
+                    <rect x="253" y="188" width="20" height="4" rx="2" fill="#feebc8"></rect>
+                    <!-- Botón CTA mini -->
+                    <rect x="200" y="200" width="80" height="18" rx="5" fill="#48bb78"></rect>
+                    <text x="240" y="212" font-size="6.5" fill="white" font-family="sans-serif" font-weight="700" text-anchor="middle">Ver agenda →</text>
+                    <!-- Home bar -->
+                    <rect x="223" y="237" width="34" height="3" rx="1.5" fill="#e2e8f0"></rect>
+                </svg>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- ─── LOGOS STRIP ─── -->
+    <div class="logos-strip">
+        <div class="container">
+            <div class="logos-strip-inner">
+                <span class="strip-label" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Para rubros como</span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>
+                    Cafeterías
+                </span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                    Peluquerías
+                </span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    Estéticas
+                </span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Librerías
+                </span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    Tiendas
+                </span>
+                <span class="industry-pill" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"></path></svg>
+                    Restaurantes
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── SOLUTIONS ─── -->
+    <section class="solutions" id="soluciones">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Nuestras soluciones</span>
+                <h2 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Herramientas para cada<br>tipo de negocio</h2>
+                <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Cada solución está diseñada y probada en el rubro, no es una plantilla genérica.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="sol-icon green">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38a169" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="2" x2="6" y2="4"></line>
+                            <line x1="10" y1="2" x2="10" y2="4"></line>
+                            <line x1="14" y1="2" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Cafetería &amp; Restó</h3>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Gestión completa de salón, mostrador y cocina. Control de mesas, pedidos, comandas y facturación integrada en un solo lugar.</p>
+                    <a href="https://wa.me/5491122441226?text=Quiero%20saber%20m%C3%A1s%20sobre%20la%20soluci%C3%B3n%20para%20cafeter%C3%ADa" class="card-link" target="_blank">
+                        Saber más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="solution-card">
+                    <div class="sol-icon blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3182ce" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="6" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                            <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                            <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Estéticas &amp; Salones</h3>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Turnos online 24/7, confirmaciones automáticas por WhatsApp, recordatorios y control de agenda del equipo sin esfuerzo.</p>
+                    <a href="https://wa.me/5491122441226?text=Quiero%20saber%20m%C3%A1s%20sobre%20la%20soluci%C3%B3n%20para%20est%C3%A9ticas" class="card-link" target="_blank">
+                        Saber más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="solution-card">
+                    <div class="sol-icon purple">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Librerías &amp; Retail</h3>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Punto de venta digital, control de stock en tiempo real, historial de ventas y reportes que te ayudan a tomar mejores decisiones.</p>
+                    <a href="https://wa.me/5491122441226?text=Quiero%20saber%20m%C3%A1s%20sobre%20la%20soluci%C3%B3n%20para%20librer%C3%ADas" class="card-link" target="_blank">
+                        Saber más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="custom-banner">
+                <div class="custom-banner-content">
+                    <h3 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">¿Tu negocio es diferente?</h3>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Desarrollamos soluciones digitales a medida para cualquier tipo de comercio. Contanos tu idea y construimos juntos la herramienta que necesitás.</p>
+                </div>
+                <a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20tengo%20un%20negocio%20y%20quiero%20una%20soluci%C3%B3n%20a%20medida" class="btn-white" target="_blank">
+                    Cuéntanos tu idea
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CÓMO FUNCIONA ─── -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header" style="text-align:center;">
+                <span class="section-eyebrow" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Proceso simple</span>
+                <h2 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Empezás en 3 pasos</h2>
+                <p style="margin: 0px auto; max-width: 420px; outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;" contenteditable="true" data-editable="true">Sin contratos largos ni configuraciones complicadas. En días ya tenés tu sistema funcionando.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Nos contactás</h4>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Nos contás sobre tu negocio por WhatsApp. Analizamos tus procesos y necesidades sin costo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Configuramos tu sistema</h4>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Adaptamos la herramienta a tu negocio. Lo implementamos con vos para que todo funcione perfecto.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Listo, a crecer</h4>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Tu negocio empieza a funcionar más eficiente. Nosotros te acompañamos con soporte continuo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHY US ─── -->
+    <section class="why-us" id="nosotros">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content">
+                    <span class="section-eyebrow" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Por qué elegirnos</span>
+                    <h2 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Más que software.<br>Un equipo a tu lado.</h2>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">No somos una empresa grande y lejana. Somos un equipo que conoce los negocios de barrio y sabe que cada minuto cuenta cuando sos dueño.</p>
+                    <ul class="features-list">
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Sistemas intuitivos, sin necesidad de capacitación técnica
+                        </li>
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Soporte real por WhatsApp, con personas de verdad
+                        </li>
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Implementación rápida, sin interrumpir tu operación
+                        </li>
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Precios accesibles para comercios argentinos
+                        </li>
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Actualizaciones y mejoras incluidas sin costo extra
+                        </li>
+                        <li contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">
+                            <span class="check-icon">
+                                <svg viewBox="0 0 12 12" fill="none" stroke="#48bb78" stroke-width="2.5"><path d="M2 6l3 3 5-5"></path></svg>
+                            </span>
+                            Tus datos seguros y siempre disponibles
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20quiero%20conocer%20m%C3%A1s" class="btn-primary" target="_blank">
+                        Conocer más
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="why-visual">
+                    <!-- Dashboard mockup -->
+                    <div class="dashboard-card">
+                        <div class="dash-header">
+                            <div class="dash-dot" style="background:#fc8181;"></div>
+                            <div class="dash-dot" style="background:#f6ad55;"></div>
+                            <div class="dash-dot" style="background:#68d391;"></div>
+                        </div>
+                        <div class="dash-body">
+                            <div class="dash-kpis">
+                                <div class="kpi-box">
+                                    <div class="kpi-label" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Turnos hoy</div>
+                                    <div class="kpi-val" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">14</div>
+                                    <div class="kpi-delta">↑ 3 vs ayer</div>
+                                </div>
+                                <div class="kpi-box">
+                                    <div class="kpi-label" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Ventas</div>
+                                    <div class="kpi-val" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">$83k</div>
+                                    <div class="kpi-delta">↑ 12%</div>
+                                </div>
+                                <div class="kpi-box">
+                                    <div class="kpi-label" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Clientes</div>
+                                    <div class="kpi-val" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">47</div>
+                                    <div class="kpi-delta">↑ 8 nuevos</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart">
+                                <div class="chart-title">Ventas — últimos 7 días</div>
+                                <div class="chart-bars">
+                                    <div class="bar" style="height:38%"></div>
+                                    <div class="bar" style="height:52%"></div>
+                                    <div class="bar blue" style="height:45%"></div>
+                                    <div class="bar" style="height:70%"></div>
+                                    <div class="bar" style="height:58%"></div>
+                                    <div class="bar blue" style="height:80%"></div>
+                                    <div class="bar" style="height:95%"></div>
+                                </div>
+                            </div>
+                            <div class="dash-table-row">
+                                <div class="row-dot" style="background:#48bb78;"></div>
+                                <div class="row-name" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">María González · Corte</div>
+                                <span class="row-badge badge-green">Confirmado</span>
+                            </div>
+                            <div class="dash-table-row">
+                                <div class="row-dot" style="background:#63b3ed;"></div>
+                                <div class="row-name" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Carlos Ruiz · Tintura</div>
+                                <span class="row-badge badge-blue">Pendiente</span>
+                            </div>
+                            <div class="dash-table-row">
+                                <div class="row-dot" style="background:#f6ad55;"></div>
+                                <div class="row-name" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Ana López · Manicura</div>
+                                <span class="row-badge badge-yellow">En curso</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating notification -->
+                    <div class="dash-notif">
+                        <div class="notif-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38a169" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        </div>
+                        <div>
+                            <div class="notif-title" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Nuevo turno confirmado</div>
+                            <div class="notif-sub" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Paula · Hoy 15:00 hs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ─── CTA ─── -->
+    <section class="cta-section" id="contacto">
+        <div class="container">
+            <div class="cta-box">
+                <h2 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">¿Listo para dar el salto?</h2>
+                <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Hablemos hoy. Sin compromiso, sin costos ocultos. Te mostramos cómo podemos transformar tu negocio.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20quiero%20digitalizar%20mi%20negocio" class="btn-primary" target="_blank">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                        Hablar por WhatsApp
+                    </a>
+                    <a href="tel:+5491122441226" class="btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"></path></svg>
+                        Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BARRA DE EDICIÓN (oculta, solo para admin) ─── -->
+    <div id="edit-bar" style="position:fixed; bottom:24px; right:24px; z-index:9999; display:flex; gap:10px; align-items:center;">
+        <button id="btn-edit" onclick="activarEdicion()" style="background:#1a202c; color:white; border:none; padding:12px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; display:none; align-items:center; gap:8px; box-shadow:0 4px 20px rgba(0,0,0,0.25); font-family:inherit;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Editar textos
+        </button>
+        <button id="btn-save" onclick="guardarCambios()" style="background:#48bb78; color:white; border:none; padding:12px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; display:none; align-items:center; gap:8px; box-shadow:0 4px 20px rgba(72,187,120,0.4); font-family:inherit;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Guardar cambios
+        </button>
+        <button id="btn-cancel" onclick="cancelarEdicion()" style="background:white; color:#e53e3e; border:2px solid #fed7d7; padding:12px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; display:none; align-items:center; gap:8px; font-family:inherit;">
+            Cancelar
+        </button>
+    </div>
+
+    <!-- Tooltip de ayuda -->
+    <div id="edit-tooltip" style="position:fixed; bottom:80px; right:24px; z-index:9998; background:#1a202c; color:white; padding:10px 16px; border-radius:8px; font-size:13px; display:none; box-shadow:0 4px 20px rgba(0,0,0,0.2); max-width:240px; line-height:1.6; font-family:inherit;">
+        ✏️ <strong>Modo edición activo</strong><br>
+        Hacé doble click en cualquier texto para editarlo. Cuando termines, hacé click en <strong>Guardar cambios</strong>.
+    </div>
+
+    <!-- Modal de contraseña -->
+    <div id="modal-clave" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+        <div style="background:white; border-radius:16px; padding:40px; max-width:360px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3); text-align:center; font-family:inherit;">
+            <div style="width:48px; height:48px; background:#f0fff4; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38a169" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 style="font-size:18px; font-weight:700; color:#1a202c; margin-bottom:8px;">Acceso de administrador</h3>
+            <p style="font-size:14px; color:#718096; margin-bottom:24px;">Ingresá la contraseña para editar el sitio</p>
+            <input id="input-clave" type="password" placeholder="Contraseña" onkeydown="if(event.key==='Enter')verificarClave()" style="width:100%; padding:12px 16px; border:2px solid #e2e8f0; border-radius:8px; font-size:15px; font-family:inherit; outline:none; margin-bottom:16px; box-sizing:border-box;"/>
+            <div id="error-clave" style="color:#e53e3e; font-size:13px; margin-bottom:12px; display:none;">Contraseña incorrecta</div>
+            <button onclick="verificarClave()" style="width:100%; background:#48bb78; color:white; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; font-family:inherit; margin-bottom:10px;">Entrar</button>
+            <button onclick="cerrarModal()" style="width:100%; background:transparent; color:#718096; border:none; padding:8px; font-size:14px; cursor:pointer; font-family:inherit;">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+    // ── CONTRASEÑA DE ADMIN ──────────────────────────
+    const ADMIN_PASSWORD = 'Szoluciones2025';
+    // ────────────────────────────────────────────────
+
+    let modoEdicion = false;
+    let backupTextos = {};
+
+    // Activar con combinación de teclas: Alt + E
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 'e') mostrarModal();
+    });
+
+    function mostrarModal() {
+        const modal = document.getElementById('modal-clave');
+        modal.style.display = 'flex';
+        document.getElementById('input-clave').value = '';
+        document.getElementById('error-clave').style.display = 'none';
+        setTimeout(() => document.getElementById('input-clave').focus(), 100);
+    }
+
+    function cerrarModal() {
+        document.getElementById('modal-clave').style.display = 'none';
+    }
+
+    function verificarClave() {
+        const clave = document.getElementById('input-clave').value;
+        if (clave === ADMIN_PASSWORD) {
+            cerrarModal();
+            document.getElementById('btn-edit').style.display = 'flex';
+        } else {
+            document.getElementById('error-clave').style.display = 'block';
+            document.getElementById('input-clave').value = '';
+            document.getElementById('input-clave').focus();
+        }
+    }
+
+    const SELECTORES_EDITABLES = [
+        'h1', 'h2', 'h3', 'h4', 'h5',
+        '.hero-content p',
+        '.hero-badge',
+        '.section-eyebrow',
+        '.section-header p',
+        '.solution-card p',
+        '.solution-card h3',
+        '.custom-banner-content h3',
+        '.custom-banner-content p',
+        '.step h4',
+        '.step p',
+        '.why-content h2',
+        '.why-content p',
+        '.features-list li',
+        '.cta-box h2',
+        '.cta-box p',
+        '.footer-brand p',
+        '.footer-phone-big',
+        '.footer-col p',
+        '.footer-bottom span',
+        '.strip-label',
+        '.industry-pill',
+        '.kpi-label',
+        '.kpi-val',
+        '.row-name',
+        '.notif-title',
+        '.notif-sub',
+    ];
+
+    function activarEdicion() {
+        modoEdicion = true;
+        document.getElementById('btn-edit').style.display = 'none';
+        document.getElementById('btn-save').style.display = 'flex';
+        document.getElementById('btn-cancel').style.display = 'flex';
+        document.getElementById('edit-tooltip').style.display = 'block';
+
+        SELECTORES_EDITABLES.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                // Solo elementos con texto directo, no botones ni links
+                if (el.closest('a') || el.closest('button')) return;
+                backupTextos[getKey(el)] = el.innerHTML;
+                el.setAttribute('contenteditable', 'true');
+                el.setAttribute('data-editable', 'true');
+                el.style.outline = '2px dashed #48bb78';
+                el.style.outlineOffset = '3px';
+                el.style.borderRadius = '4px';
+                el.style.cursor = 'text';
+                el.style.minWidth = '20px';
+            });
+        });
+    }
+
+    function desactivarEdicion() {
+        document.getElementById('btn-edit').style.display = 'flex';
+        document.getElementById('btn-save').style.display = 'none';
+        document.getElementById('btn-cancel').style.display = 'none';
+        document.getElementById('edit-tooltip').style.display = 'none';
+        modoEdicion = false;
+
+        document.querySelectorAll('[data-editable]').forEach(el => {
+            el.removeAttribute('contenteditable');
+            el.removeAttribute('data-editable');
+            el.style.outline = '';
+            el.style.outlineOffset = '';
+            el.style.borderRadius = '';
+            el.style.cursor = '';
+            el.style.minWidth = '';
+        });
+    }
+
+    function guardarCambios() {
+        // Recolectar todos los textos editados
+        const textos = {};
+        document.querySelectorAll('[data-editable]').forEach(el => {
+            textos[getKey(el)] = el.innerHTML;
+        });
+
+        // Generar el HTML final actualizado
+        const htmlCompleto = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+        // Descargar como archivo
+        const blob = new Blob([htmlCompleto], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'index.html';
+        a.click();
+        URL.revokeObjectURL(url);
+
+        desactivarEdicion();
+
+        // Mostrar confirmación
+        mostrarToast('✅ Cambios guardados. Reemplazá el archivo index.html con el descargado.');
+    }
+
+    function cancelarEdicion() {
+        // Restaurar textos originales
+        document.querySelectorAll('[data-editable]').forEach(el => {
+            const key = getKey(el);
+            if (backupTextos[key] !== undefined) {
+                el.innerHTML = backupTextos[key];
+            }
+        });
+        backupTextos = {};
+        desactivarEdicion();
+        mostrarToast('Edición cancelada. No se guardaron cambios.');
+    }
+
+    function getKey(el) {
+        // Clave única por elemento basada en su posición en el DOM
+        let path = [];
+        let node = el;
+        while (node && node !== document.body) {
+            let idx = Array.from(node.parentNode.children).indexOf(node);
+            path.unshift(node.tagName + '[' + idx + ']');
+            node = node.parentNode;
+        }
+        return path.join('>');
+    }
+
+    function mostrarToast(msg) {
+        const toast = document.createElement('div');
+        toast.textContent = msg;
+        toast.style.cssText = `
+            position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+            background: #1a202c; color: white; padding: 14px 24px;
+            border-radius: 8px; font-size: 14px; font-family: inherit;
+            z-index: 99999; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 90vw; text-align: center; line-height: 1.5;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 5000);
+    }
+    </script>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo" style="color:white; margin-bottom:14px;">
+                        <div class="logo-icon">SZ</div>
+                        <span>Szoluciones</span>
+                    </div>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Digitalización para comercios y negocios argentinos. Simplificamos tu operación para que puedas crecer.</p>
+                    <a href="https://wa.me/5491122441226?text=Hola%20SZoluciones%2C%20quiero%20m%C3%A1s%20info" class="footer-wa" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                        Escribinos por WhatsApp
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h5 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Soluciones</h5>
+                    <a href="#soluciones">Cafetería &amp; Restó</a>
+                    <a href="#soluciones">Estéticas &amp; Salones</a>
+                    <a href="#soluciones">Librerías &amp; Retail</a>
+                    <a href="https://wa.me/5491122441226?text=Tengo%20un%20negocio%20diferente" target="_blank">Solución a medida</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Empresa</h5>
+                    <a href="#nosotros">Quiénes somos</a>
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5 contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Contacto</h5>
+                    <div class="footer-phone-big" contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">+54 9 11 2244-1226</div>
+                    <p contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Lunes a viernes · 10 a 19 hs</p>
+                    <p style="margin-top: 8px; outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;" contenteditable="true" data-editable="true">Estaremos encantados de conversar con vos.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">© 2025 Szoluciones. Todos los derechos reservados.</span>
+                <span contenteditable="true" data-editable="true" style="outline: rgb(72, 187, 120) dashed 2px; outline-offset: 3px; border-radius: 4px; cursor: text; min-width: 20px;">Hecho con ❤️ para negocios argentinos</span>
+            </div>
+        </div>
+    </footer>
+
+
+
+<bookmark-sidebar-tdil4ejn5ag id="redeviation-bs-sidebar" class="notranslate" data-theme="default" data-pos="left"></bookmark-sidebar-tdil4ejn5ag><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight redeviation-bs-visible" data-pos="left" style="height: 100%; top: 0%;"><div><span></span></div></div></body></html>

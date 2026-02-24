@@ -1569,17 +1569,17 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
             Editar textos
         </button>
-        <button id="btn-save" onclick="guardarCambios()" style="background: rgb(72, 187, 120); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: rgba(72, 187, 120, 0.4) 0px 4px 20px; font-family: inherit;">
+        <button id="btn-save" onclick="guardarCambios()" style="background: rgb(72, 187, 120); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: none; align-items: center; gap: 8px; box-shadow: rgba(72, 187, 120, 0.4) 0px 4px 20px; font-family: inherit;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             Guardar cambios
         </button>
-        <button id="btn-cancel" onclick="cancelarEdicion()" style="background: white; color: rgb(229, 62, 62); border: 2px solid rgb(254, 215, 215); padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: inherit;">
+        <button id="btn-cancel" onclick="cancelarEdicion()" style="background: white; color: rgb(229, 62, 62); border: 2px solid rgb(254, 215, 215); padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: none; align-items: center; gap: 8px; font-family: inherit;">
             Cancelar
         </button>
     </div>
 
     <!-- Tooltip de ayuda -->
-    <div id="edit-tooltip" style="position: fixed; bottom: 80px; right: 24px; z-index: 9998; background: rgb(26, 32, 44); color: white; padding: 10px 16px; border-radius: 8px; font-size: 13px; display: block; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 20px; max-width: 240px; line-height: 1.6; font-family: inherit;">
+    <div id="edit-tooltip" style="position: fixed; bottom: 80px; right: 24px; z-index: 9998; background: rgb(26, 32, 44); color: white; padding: 10px 16px; border-radius: 8px; font-size: 13px; display: none; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 20px; max-width: 240px; line-height: 1.6; font-family: inherit;">
         ✏️ <strong>Modo edición activo</strong><br>
         Hacé doble click en cualquier texto para editarlo. Cuando termines, hacé click en <strong>Guardar cambios</strong>.
     </div>
@@ -1628,7 +1628,7 @@
         const clave = document.getElementById('input-clave').value;
         if (clave === ADMIN_PASSWORD) {
             cerrarModal();
-            document.getElementById('btn-edit').style.display = 'flex';
+            activarEdicion();
         } else {
             document.getElementById('error-clave').style.display = 'block';
             document.getElementById('input-clave').value = '';
@@ -1690,7 +1690,7 @@
     }
 
     function desactivarEdicion() {
-        document.getElementById('btn-edit').style.display = 'flex';
+        document.getElementById('btn-edit').style.display = 'none';
         document.getElementById('btn-save').style.display = 'none';
         document.getElementById('btn-cancel').style.display = 'none';
         document.getElementById('edit-tooltip').style.display = 'none';
